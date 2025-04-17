@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Calorie Needs</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container py-5">
+        <h1 class="text-center mb-4">Your Daily Calorie Needs</h1>
+        
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="text-center mb-4">You need approximately <span class="text-primary">{{ calories }}</span> calories per day</h3>
+                        
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <h4>Your Details:</h4>
+                                <ul class="list-group">
+                                    <li class="list-group-item">Gender: {{ gender|capitalize }}</li>
+                                    <li class="list-group-item">Age: {{ age }} years</li>
+                                    <li class="list-group-item">Weight: {{ weight }} kg</li>
+                                    <li class="list-group-item">Height: {{ height }} cm</li>
+                                    <li class="list-group-item">Activity Level: {{ activity_level|replace('_', ' ')|title }}</li>
+                                    <li class="list-group-item">Diet Preference: {{ 'Vegetarian' if preference == 'veg' else 'Non-Vegetarian' }}</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="card bg-light">
+                                    <div class="card-body">
+                                        <h4>What This Means:</h4>
+                                        <p>This is your estimated daily calorie needs to maintain your current weight based on the Mifflin-St Jeor equation.</p>
+                                        <p>To lose weight: Subtract 500 calories/day (~0.5kg/week loss)</p>
+                                        <p>To gain weight: Add 500 calories/day (~0.5kg/week gain)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center mt-4">
+                            <a href="{{ url_for('calorie_calculator') }}" class="btn btn-secondary me-2">Recalculate</a>
+                            <a href="{{ url_for('meal_planner') }}?calories={{ calories }}&preference={{ preference }}" class="btn btn-primary">Generate Meal Plan</a>
+                            <a href="{{ url_for('home') }}" class="btn btn-outline-primary ms-2">Home</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

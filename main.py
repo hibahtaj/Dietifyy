@@ -13,7 +13,7 @@ app = Flask(__name__)
 app.secret_key = 'your_secret_key'  
 
 # MongoDB connection
-client = MongoClient('mongodb://localhost:27017/')  #  MongoDB URI
+client = MongoClient('mongodb://mongo-db:27017')  #  MongoDB URI
 db = client['dietify_db']  # This is the database for the project
 users_collection = db['users']  # Collection to store users
 
@@ -312,4 +312,4 @@ def get_diet_tip():
     return random.choice(diet_tips)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000)

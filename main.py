@@ -13,7 +13,7 @@ app = Flask(__name__)
 app.secret_key = 'your_secret_key'  
 
 # MongoDB connection
-client = MongoClient('mongodb+srv://hibahtaj05_db_user:Hibahtaj@05@cluster0.9hvnlou.mongodb.net/?appName=Cluster0')  #  MongoDB URI
+client = MongoClient('mongodb+srv://hibahtaj05_db_user:Hibahtaj%4005@cluster0.9hvnlou.mongodb.net/?appName=Cluster0')  #  MongoDB URI
 db = client['dietify_db']  # This is the database for the project
 users_collection = db['users']  # Collection to store users
 
